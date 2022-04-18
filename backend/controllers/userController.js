@@ -15,7 +15,7 @@ exports.registerUser= catchAsyncError(async (req, res, next)=>{
         crop: "scale"
     })
     console.log("IN")
-    const {name,email,password} = req.body;
+    const {name,email,password,role} = req.body;
 
     const user = await User.create({
         name,
@@ -25,6 +25,7 @@ exports.registerUser= catchAsyncError(async (req, res, next)=>{
             public_id: myCloud.public_id,
             url: myCloud.secure_url,
         },
+        role
     });
 
     sendToken(user,201,res)
