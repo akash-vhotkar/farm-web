@@ -52,6 +52,11 @@ const orderSchema = new mongoose.Schema({
         ref: "Product",
         required: true,
       },
+      user:{
+        type: mongoose.Schema.ObjectId,
+        ref: "User",
+        required: false
+      }
     },
   ],
   user: {
